@@ -3,23 +3,25 @@ namespace CliOptions
 {
     public static class Options
     {
+        public static Option<FileInfo> BundleOption = new Option<FileInfo>(
+            new[] { "--output", "-o" },
+            "file path and name");
 
-        public static Option<FileInfo> BundleOption = new Option<FileInfo>("--output", "file path and name");
         public static Option<DirectoryInfo> FolderOption = new Option<DirectoryInfo>(
-            "--input",
-            () => new DirectoryInfo(Directory.GetCurrentDirectory()), // ברירת מחדל - תיקייה נוכחית
-            "Directory containing code files to bundle"
-        );
+            new[] { "--input", "-i" },
+            () => new DirectoryInfo(Directory.GetCurrentDirectory()),
+            "Directory containing code files to bundle");
+
         public static Option<string[]> LanguageOption = CreateLanguageOption();
 
         public static Option<string[]> CreateLanguageOption()
         {
             return new Option<string[]>(
-                "--language",
+                new[] { "--language", "-l" },
                 parseArgument: result =>
                 {
                     var allowedLanguages = new HashSet<string>
-                   {
+                    {
                         "csharp", "c#", "js", "javascript", "java-script",
                         "python", "java", "cpp", "c++", "c", "html", "css", "ts", "txt",
                         "php", "ruby", "cobol"
@@ -50,25 +52,24 @@ namespace CliOptions
         }
 
         public static Option<bool> NoteOption = new Option<bool>(
-            "--note",
+            new[] { "--note", "-n" },
             description: "Include source code note in the bundle",
             getDefaultValue: () => false
         );
 
         public static Option<string> SortOption = new Option<string>(
-            "--sort",
+            new[] { "--sort", "-s" },
             description: "which sort of the files"
-
         );
 
         public static Option<bool> RemoveEmptyLinesOption = new Option<bool>(
-            "--remove-empty-lines",
+            new[] { "--remove-empty-lines", "-r" },
             description: "Remove all empty lines in files",
             getDefaultValue: () => false
         );
 
         public static Option<string> AuthorOption = new Option<string>(
-            "--author",
+            new[] { "--author", "-a" },
             description: "Name of the file author"
         );
     }
