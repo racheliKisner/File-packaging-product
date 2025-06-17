@@ -1,0 +1,41 @@
+// קובץ של : sadc
+
+// קובץ: a.py
+print("hello rachel")
+
+// קובץ: area.py
+import sys
+import math
+r=int(sys.argv[1])
+area=math.pi*r**2
+print("the radius is ",r,"the area is ",area)
+
+// קובץ: b.py
+import sys
+x=int(sys.argv[1])
+y=int(sys.argv[2])
+sum=x+y
+print(sum)
+import datetime
+today = datetime.date.today()
+date = today.strftime("%d/%m/%Y")
+print(date)
+current_time = datetime.datetime.now()
+print(current_time)
+print(date, current_time.strftime("%H:%M:%S"))
+
+// קובץ: new.py
+
+// קובץ: nwe2.py
+
+// קובץ: untitled0.py
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Oct 28 20:18:21 2024
+@author: USER
+"""
+print("hello")
+x=5
+y=3
+print(x+y)
+
