@@ -47,7 +47,7 @@ namespace CliFileProcessor
             {
                 if (!string.IsNullOrWhiteSpace(author))
                 {
-                    writer.WriteLine($"// קובץ של : {author}");
+                    writer.WriteLine($"  קובץ של : {author}");
                     writer.WriteLine();
                 }
 
@@ -57,7 +57,7 @@ namespace CliFileProcessor
                     foreach (var group in grouped)
                     {
                         if (includeNotes)
-                            writer.WriteLine($"// --- סוג קובץ: {group.Key} ---");
+                            writer.WriteLine($" --- סוג קובץ: {group.Key} ---");
 
                         foreach (var file in group)
                             WriteSingleFileContent(writer, file, sourceDirectory, includeNotes, removeEmptyLines);

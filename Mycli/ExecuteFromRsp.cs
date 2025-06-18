@@ -36,8 +36,8 @@ namespace CliExecuteFromRsp
 
             try
             {
-                FileInfo outputFile = new FileInfo(output);
-                outputFile = FileProcessor.EnsureOutputFile(outputFile); // ודא שהקובץ קיים
+                FileInfo outputFile = new FileInfo("newFile.txt");
+                outputFile = FileProcessor.EnsureOutputFile(outputFile); 
 
                 DirectoryInfo inputDirectory = new DirectoryInfo(input);
 

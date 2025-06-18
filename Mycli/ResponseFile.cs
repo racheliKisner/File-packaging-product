@@ -10,17 +10,17 @@ namespace CliResponseFile
     {
         public static void CreateRsp()
         {
-            Console.WriteLine("!שלום וברכה");
-            Console.WriteLine("? מה שמך");
+            Console.WriteLine("Hello");
+            Console.WriteLine("What is your name?");
             string author = Console.ReadLine();
 
-            Console.WriteLine("?מאיזה תיקייה תרצי להעתיק את הקבצים");
+            Console.WriteLine("From which folder would you like to copy the files?");
             string input = Console.ReadLine();
 
-            Console.WriteLine("באיזה תיקייה תרצי לשמור את הקובץ או הקישי אנטר לשמירה בקובץ זה");
+            Console.WriteLine("In which folder would you like to save the file or press Enter to save to this file");
             string output = Console.ReadLine();
 
-            Console.WriteLine("all אילו שפות תרצי לכלול בקובץ או בחרי  ");
+            Console.WriteLine("Which languages ​​would you like to include in the file or select all?");
             string LanguageOption = Console.ReadLine().Trim().ToLower();
             var allowedLanguages = new HashSet<string>
             {
@@ -49,23 +49,22 @@ namespace CliResponseFile
                 LanguageOption = string.Join(", ", values);
             }
 
-            Console.WriteLine("האם תרצי להוסיף הערת סוג קובץ בחרי true או false");
+            Console.WriteLine("Would you like to add a file type comment? Select true or false.");
             string NoteOption = Console.ReadLine();
 
-            Console.WriteLine("האם תרצי למיין לפי שפות true או false לפי שם הקובץ");
+            Console.WriteLine("Would you like to sort by file name? Select true or false.");
             string SortOption = Console.ReadLine();
 
-            Console.WriteLine("האם תרצי להוסיר שורות ריקות בחרי true או false");
+            Console.WriteLine("Would you like to remove empty rows? Select true or false.");
             string RemoveEmptyLinesOption = Console.ReadLine();
 
             var command = $"fib bundle --input {input} --output {output}" +
                 $" --language {LanguageOption} --note {NoteOption} --sort {SortOption} " +
                 $"--remove-empty-lines {RemoveEmptyLinesOption} --author {author}";
-
-            // שמירת הפקודה בקובץ תגובה
+           
             File.WriteAllText("fileName.rsp", command);
 
-            Console.WriteLine("קובץ התגובה נוצר בהצלחה בשם fileName.rsp.");
+            Console.WriteLine("The response file was successfully created as fileName.rsp.");
             ExecuteFromRsp.CreateBundleCommandFromRsp("fileName.rsp");
         }
     }
